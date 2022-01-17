@@ -5,9 +5,8 @@ from dxfwrite import DXFEngine as dxf
 name = input('Input name of photo: ')
 image = Image.open(name + '.jpg')  # read an image
 newWidth = int(input('Input number of circles in X: '))  # input x dimension of new resized image
-new_image = image.resize((newWidth, int(image.height * newWidth / image.width))).convert('L')  # resizing and convert
+new_image = image.resize((newWidth, int(image.height * newWidth / image.width))).convert('L')  # resizing and convert to gray 
 new_image = ImageEnhance.Contrast(new_image).enhance(2)
-# to gray 
 new_image.save(name + '_new.jpg')  # save resized image
 briPixel = [[new_image.getpixel((i, j)) for j in range(new_image.height - 1)] for i in range(new_image.width)]  #
 # matrix of brightness of gray resized image
