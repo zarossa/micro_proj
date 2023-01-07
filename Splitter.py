@@ -4,9 +4,8 @@ class Splitter:
         self.receivers = {}
         self.list_of_receivers = []
         self.list_of_givers = set()
-        # self.names = self.make_list_names()
-        # self.spending = self.make_list_of_spending(self.names)
-        self.spending = {'Ярик/Таня': [410, 53, 56, 277, 200, 64], 'Глеб/Вика': [350, 230, 180], 'Ден/Аня': [200, 82, 100, 30], 'Андрей': [106, 6, 208, 62, 92, 170], 'Вано': [65], 'Соня': [137], 'Саня': [0]}
+        self.names = self.make_list_names()
+        self.spending = self.make_list_of_spending(self.names)
         self.full_sum, self.per_sum = self.summarize(self.spending)
 
     def listed(self):
@@ -63,10 +62,7 @@ class Splitter:
             else:
                 self.receivers[name] = spending[name]
                 self.list_of_receivers.append(name)
-        # print(self.givers)
-        # print(self.receivers)
         for name in self.givers:
-            # print(name)
             debt = self.givers[name]
             while debt:
                 receiver = self.list_of_receivers[0]
