@@ -70,7 +70,9 @@ class Splitter:
                     transfer = self.receivers.pop(receiver)
                     self.list_of_receivers.pop(0)
                     debt = round(debt + transfer, 1)
-                    print(f'{name} -> {receiver} = {round(transfer)}')
+                    print(f"{name} -> {receiver} = {round(transfer)}")
+                    if len(self.list_of_receivers) == 0:
+                        break
                 else:
                     transfer = - debt
                     self.receivers[receiver] -= transfer
